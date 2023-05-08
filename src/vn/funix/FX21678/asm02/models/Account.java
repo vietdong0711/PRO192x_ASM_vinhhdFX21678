@@ -24,6 +24,15 @@ public class Account {
         this.balance = balance;
     }
 
+    public Account(){
+
+    }
+
+    public Account(String accountNumber, double balance){
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
     public boolean isPremium() {
         if (this.balance < 10000000)
             return false;

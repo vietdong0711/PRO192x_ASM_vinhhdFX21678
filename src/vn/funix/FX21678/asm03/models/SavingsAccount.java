@@ -6,7 +6,15 @@ import vn.funix.FX21678.asm03.utils.Utils;
 public class SavingsAccount extends Account implements ReportService, Withdraw {
 
     private static final double SAVINGS_ACCOUNT_MAX_WITHDRAW = 5000000;
-    private Account account = new SavingsAccount();
+
+    public SavingsAccount(){
+
+    }
+
+    public SavingsAccount(String accountNumber, double balance){
+        this.setAccountNumber(accountNumber);
+        this.setBalance(balance);
+    }
 
     public static String getTitle(){
         return "BIEN LAI GIAO DICH";
@@ -18,9 +26,9 @@ public class SavingsAccount extends Account implements ReportService, Withdraw {
         System.out.printf("%30s%n", getTitle());
         System.out.printf("Ngay G/D: %30s%n", Utils.getDateTime());
         System.out.printf("ATM ID: %30s%n", "DIGITAL-BANK-ATM 2023");
-        System.out.printf("So TK: %31s%n", account.getAccountNumber());
+        System.out.printf("So TK: %31s%n", this.getAccountNumber());
         System.out.printf("SO TIEN: %29s%n", Utils.formatBalance(amount));
-        System.out.printf("SO DU: %31s%n", Utils.formatBalance(account.getBalance()));
+        System.out.printf("SO DU: %31s%n", Utils.formatBalance(this.getBalance()));
         System.out.printf("PHI + VAT: %27s%n", Utils.formatBalance(amount));
         System.out.println(Utils.getDivider());
     }
