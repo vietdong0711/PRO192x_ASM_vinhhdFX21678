@@ -33,6 +33,7 @@ public class LoanAccount extends Account implements Withdraw, ReportService {
 
     @Override
     public boolean isAccepted(double amount) {
+
         return false;
     }
 
@@ -50,7 +51,7 @@ public class LoanAccount extends Account implements Withdraw, ReportService {
         System.out.println(Utils.getDivider());
     }
 
-    public boolean withdraw(String customerId, String accountNumber, double amount){
+    public boolean withdraw(String accountNumber, double amount){
 
         return true;
     }

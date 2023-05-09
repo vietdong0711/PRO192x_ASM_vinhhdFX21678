@@ -7,16 +7,16 @@ public class SavingsAccount extends Account implements ReportService, Withdraw {
 
     private static final double SAVINGS_ACCOUNT_MAX_WITHDRAW = 5000000;
 
-    public SavingsAccount(){
+    public SavingsAccount() {
 
     }
 
-    public SavingsAccount(String accountNumber, double balance){
+    public SavingsAccount(String accountNumber, double balance) {
         this.setAccountNumber(accountNumber);
         this.setBalance(balance);
     }
 
-    public static String getTitle(){
+    public static String getTitle() {
         return "BIEN LAI GIAO DICH";
     }
 
@@ -35,9 +35,8 @@ public class SavingsAccount extends Account implements ReportService, Withdraw {
 
     @Override
     public boolean withdraw(double amount) {
-        double newBalance = 0.0;
-        if (isAccepted(newBalance)){
-            setBalance(newBalance);
+        if (isAccepted(amount)) {
+            setBalance(this.getBalance() - amount);
             return true;
         }
         return false;
@@ -45,6 +44,6 @@ public class SavingsAccount extends Account implements ReportService, Withdraw {
 
     @Override
     public boolean isAccepted(double amount) {
-        return false;
+        return amount <= SAVINGS_ACCOUNT_MAX_WITHDRAW && this.getBalance() - amount >= 50000 && amount % 10000 == 0;
     }
 }
