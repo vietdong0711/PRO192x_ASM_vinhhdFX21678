@@ -52,10 +52,10 @@ public class Customer extends User {
         DecimalFormat dcf = (DecimalFormat) NumberFormat.getNumberInstance(locale);
         dcf.applyPattern(pattern);
 
-        System.out.printf("%-18s|%-18s|%-18s|%-18s\n", this.getCustomerId(), this.getName(), this.isPremium()?"Premium":"Normal", dcf.format(this.getBalance()));
+        System.out.printf("%18s|%18s|%18s|%18s\n", this.getCustomerId(), this.getName(), this.isPremium()?"Premium":"Normal", dcf.format(this.getBalance()));
         int i = 1;
         for (Account acc : accounts) {
-            System.out.printf("%-3s%-15%s|-56s\n", i, acc.getAccountNumber(),  dcf.format(acc.getBalance())+"đ");
+            System.out.printf("%-3s%15s|%56s\n", i, acc.getAccountNumber(),  dcf.format(acc.getBalance())+"đ");
             i++;
         }
     }
